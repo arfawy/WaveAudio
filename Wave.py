@@ -1,4 +1,5 @@
 import struct
+import sys
 
 class Wave:    
     def __init__(self, filename):
@@ -48,6 +49,10 @@ class Wave:
             "DataBlocID":self.dataBlocID,
             "DataSize":self.dataSize
             }
-      
-wave = Wave("angry_dog.wav")
-print (wave.getParams())
+try:   
+    filename = sys.argv[1]   
+    wave = Wave(filename)
+    print (wave.getParams())
+except:
+    print ("Error: ")
+    print ("Command: python wave.py <filename>.wav")
